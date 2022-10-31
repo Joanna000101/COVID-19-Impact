@@ -4,3 +4,6 @@
 
 ## Data availability
 
+For the Covid-19 data, we download data from Harvard Dataverse (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN), and we will use the provinceConfirmed, provinceDeath, provinceRecover data from it.
+
+For the provincial time-series economics data in China, we download data from China National Bureau of Statistics (https://data.stats.gov.cn/easyquery.htm?cn=G0104). For analysis of COVID-19's impact to USD index, use time series data that range from 2018.10.31 to 2022.10.31, and we download it from Investing.com.
