@@ -1,9 +1,15 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "Impact of COVID-19"
+author: "Runnan Jiang, Wanling Bai, Yancheng Zhang"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
 # Introduction
 
+Recent years have witnessed the significant impact of COVID-19. Discovered in December 2019, COVID-19 quickly spread throughout the world. In March 2020, The World Health Organization declared the COVID-19 outbreak as a pandemic. It was not until December 2020 that effective vaccines were discovered. By now, COVID-19 has more than 635 million cases and more than 6 million deaths. Counties seal borders; people wear masks; school and works go virtually. As the epidemic continued, the economy started to recess: companies became bankrupted, and people struggled with continued unemployment. Though countries respond to the pandemic differently, most countries commit huge losses. The global economy suffers during and after the pandemic. 
+
+The pandemic dramatically changes daily life and global dynamics. We are curious about the global and local impact of COVID-19. What is the worldwide impact of COVID-19? How do the regional impacts of COVID-19 differ from region to region? What are the potential reasons for the difference? We focus on the impact of COVID-19 in China. China has a large discrepancy in economic development across regions. We probe the differences and interactions between regions of China during the pandemic. Since the economy reflects the impact of the pandemic, we explored the impact mainly from the economic aspect.
+
+
+Reference: https://en.wikipedia.org/wiki/Timeline_of_the_COVID-19_pandemic
