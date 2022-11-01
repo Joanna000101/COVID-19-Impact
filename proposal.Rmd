@@ -1,6 +1,7 @@
 # Proposal
 
 ## Research topic
+Our research mainly focuses on the impact of COVID-19 on Chinese and global economy. After the outbreak in 2020, COVID-19 pandemic has had many adverse effects on the economy. We want to explore countries' economic status before and during COVID-19 using indexes as follows. 
 
 ## Data availability
 
