@@ -1,7 +1,12 @@
 # Proposal
 
 ## Research topic
+
 Our research mainly focuses on the impact of COVID-19 on Chinese and global economy. After the outbreak in 2020, COVID-19 pandemic has had many adverse effects on the economy. We want to explore countries' economic status before and during COVID-19 using indexes as follows. 
+
+Firstly, we use global GDP and US Dollar Index to gain an overall view of global economy from 2018 to 2021. Then we narrow down to COVID-19 impact on Chinese economy. Provincial GDP of East/Central/West China can reveal the impact of COVID-19 on regions which have different levels of economic development. Transportation cost data are used to explore the impact on transportation within and between provinces. Total import and export data can reveal the impact on international trade. Wholesale and retail trade data are used to measure offline transaction activity. At last, we visualize unemployment rate as a lagging indicator to measures the effect of economic events.
+
+We apply techniques including faceting, Cleveland dot plot, scatter plot, Mosaic plot, spatial data visualization, etc. to explore the impact of COVID-19 on Chinese and global economy.
 
 ## Data availability
 
