@@ -21,3 +21,10 @@ plot_missing(gdp, percent = FALSE)
 # plot_missing(import, percent = FALSE)
 # plot_missing(export, percent = FALSE)
 ```
+
+There is missing volume in US dollar historical index, but we only used close price of it.
+
+```{r}
+df2 <- read.csv(file="US Dollar Index Historical Data.csv")
+plot_missing(df2, percent=FALSE)
+```

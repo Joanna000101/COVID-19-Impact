@@ -2,6 +2,71 @@
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(collapse = TRUE)
 ```
+```{r}
+library(ggplot2)
+library(GGally)
+library(redav)
+library(tidyr)
+library("readxl")
+#install.packages("remotes")
+#remotes::install_github("jtr13/redav")
+```
+
+# 1
+```{r}
+df1 <- read_excel("GDP_Global.xlsx")
+df1 
+```
+
+```{r}
+df1_1 <- df1[-c(3)]
+df1_1$'2019' <- 100* (df1$'2019'-df1$'2018')/df1$'2018'
+df1_1$'2020' <- 100* (df1$'2020'-df1$'2019')/df1$'2019'
+df1_1$'2021' <- 100* (df1$'2021'-df1$'2020')/df1$'2020'
+
+df1_1
+```
+
+
+```{r}
+ggparcoord(df1_1, columns=3:5, groupColumn=1, scale="globalminmax", title="GDP Growth Rates by Country") +
+  xlab("Year")+
+  ylab("GDP Growth Precentage")+
+  theme_bw()+
+  scale_color_discrete(breaks=c("United States", "China", "Japan", "United Kingdom", "Germany"))
+```
+
+The graph shows the GDP growth rates for the top five countries with the highest GDP. The GDP of these countries accounts for more than half of the world GDP. They well indicate the global economy. We can observe from the graph that most of the countries, expect China, experienced negative GDP growth in 2020. Most of the countries, expect China and Germany, experienced the lowest GDP growth in 2020. The global economy was not going well during the pandemic. 
+
+
+# 2
+```{r}
+df2 <- read.csv(file="US Dollar Index Historical Data.csv")
+head(df2)
+```
+There is no missing value for columns used in this project: Date and Price.
+
+```{r}
+df2$Date <- as.Date(df2$Date, format = "%m/%d/%Y")
+head(df2)
+```
+
+```{r}
+ggplot(data=df2, aes(Date, Price))+
+  geom_line()+
+  ggtitle("US Dollar Index")+
+  geom_vline(xintercept = as.Date("03/11/2020", format = "%m/%d/%Y"), color="blue", alpha=0.3)+
+  annotate("text", x=as.Date("03/11/2020", format = "%m/%d/%Y"), y=112, color="blue", label="The World Health Organization declared \n the COVID-19 outbreak a pandemic \n 2020/03/11", hjust=0)+
+  theme_bw()
+```
+
+The US dollar index tracks the relative value of the U.S. dollar against a basket of important world currencies: Euro, Japanese yen, Pound sterling, Canadian dollar, Swedish krona, and Swiss franc. The six currencies included in the USDX are often referred to as America's most significant trading partners. So, the index implies the strength of US dollar. US Dollar is considered as the safest asset in the world and investors tend to buy it when the probability of economic recession increases. When more people invest in USD, it is stronger. The US dollar index is a good measure of investor’s panic and global economy. 
+
+We can obverse from the graph that the US dollar index increases dramatically around March 11, 2020, when the World Health Organization declared the COVID-19 outbreak a pandemic. The pandemic lowered investor's confidence in global economy and motivated more investment in safer asset, such as USD. This trend corresponds to what we observed in the previous graph: the global GDP growth dropped significantly during the pandemic. 
+
+Reference: https://www.investopedia.com/terms/u/usdx.asp
+
+
 
 The COVID-19 pandemic will have an impact on different provinces and industries in China. During the outbreak in 2020, transportation, retail, urban registered unemployment rate, total import, total export, net export and other industries all showed a slow growth trend. This pattern of decline is concentrated in the Midwest. As we know, the development of eastern China mainly depends on its technology and services, while the development of central and western China, such as Shanxi, Xinjiang and Inner Mongolia, takes advantage of its abundant resources (coal, metals, cotton). Companies in these areas produce primary products and transfer them to eastern China or abroad for further processing.
 
