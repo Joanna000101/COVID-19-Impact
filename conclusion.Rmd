@@ -11,3 +11,5 @@ COVID-19 first outbroke in Wuhan, Hubei province, and spread to its neighbor pro
 The analysis in this project in primarily exploratory. For further research, we could inspect more on the reasons of differences in economy performances across provinces. For example, we could research more closely on the factors affecting province overall economy performance. We could show the weight of each sector in the GDP for each province and quantify the level of restrictiveness of lockdown policy for each province. We could build machine learning models on these factors and analysis the constitution of GDP performance quantitatively.  
 
 ## Lessons Learned
+
+In this project, we learned to search for data from more reliable resources, and to validate the accuracy our data by random search. What's more, we learned that when we are processing Chinese characters, we should put extra focus on GBK encoding and utf-8 encoding.
