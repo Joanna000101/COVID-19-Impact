@@ -28,7 +28,6 @@ df1_1$'2021' <- 100* (df1$'2021'-df1$'2020')/df1$'2020'
 df1_1
 ```
 
-
 ```{r}
 ggparcoord(df1_1, columns=3:5, groupColumn=1, scale="globalminmax", title="GDP Growth Rates by Country") +
   xlab("Year")+
@@ -71,7 +70,7 @@ Reference: https://www.investopedia.com/terms/u/usdx.asp
 
 The COVID-19 pandemic will have an impact on different provinces and industries in China. During the outbreak in 2020, transportation, retail, urban registered unemployment rate, total import, total export, net export and other industries all showed a slow growth trend. This pattern of decline is concentrated in the Midwest. As we know, the development of eastern China mainly depends on its technology and services, while the development of central and western China, such as Shanxi, Xinjiang and Inner Mongolia, takes advantage of its abundant resources (coal, metals, cotton). Companies in these areas produce primary products and transfer them to eastern China or abroad for further processing.
 
-To better illustrate the downward trend, we use the percentage change in growth rates between 2020 and 2019 to measure the decline. To ensure that the worse the indicator, the darker the map, we use the negative sign of the original value to draw the graph. As we can see from the chart below, the GDP growth rate of most provinces in China declined from 2019 to 2020, especially the central provinces. Hubei, the province where the epidemic first broke out, saw the biggest drop. The situation is similar in neighboring provinces of Hubei.
+To better illustrate the downward trend, we use the percentage change in growth rates between 2020 and 2019 to measure the decline. To ensure that the worse the indicator, the darker the map, we use the negative sign of the original value to draw the graph. 
 
 ```{r}
 library(readxl)
