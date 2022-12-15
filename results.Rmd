@@ -1,1 +1,65 @@
 # Results
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+The COVID-19 pandemic will have an impact on different provinces and industries in China. During the outbreak in 2020, transportation, retail, urban registered unemployment rate, total import, total export, net export and other industries all showed a slow growth trend. This pattern of decline is concentrated in the Midwest. As we know, the development of eastern China mainly depends on its technology and services, while the development of central and western China, such as Shanxi, Xinjiang and Inner Mongolia, takes advantage of its abundant resources (coal, metals, cotton). Companies in these areas produce primary products and transfer them to eastern China or abroad for further processing.
+
+To better illustrate the downward trend, we use the percentage change in growth rates between 2020 and 2019 to measure the decline. To ensure that the worse the indicator, the darker the map, we use the negative sign of the original value to draw the graph. As we can see from the chart below, the GDP growth rate of most provinces in China declined from 2019 to 2020, especially the central provinces. Hubei, the province where the epidemic first broke out, saw the biggest drop. The situation is similar in neighboring provinces of Hubei.
+
+```{r}
+library(readxl)
+gdp <- read_excel("china_economics.xlsx", sheet = 1)
+transport <- read_excel("china_economics.xlsx", sheet = 2)
+retail <- read_excel("china_economics.xlsx", sheet = 3)
+unemployment <- read_excel("china_economics.xlsx", sheet = 4)
+import <- read_excel("china_economics.xlsx", sheet = 5)
+export <- read_excel("china_economics.xlsx", sheet = 6)
+delta_gdp <- (gdp$`2020`-gdp$`2019`)/gdp$`2019` - (gdp$`2019`-gdp$`2018`)/gdp$`2018`
+delta_transport <- (transport$`2020`-transport$`2019`)/transport$`2019` - (transport$`2019`-transport$`2018`)/transport$`2018`
+delta_retail <- (retail$`2020`-retail$`2019`)/retail$`2019` - (retail$`2019`-retail$`2018`)/retail$`2018`
+delta_unemployment <- (unemployment$`2020`-unemployment$`2019`)/unemployment$`2019` - (unemployment$`2019`-unemployment$`2018`)/unemployment$`2018`
+delta_import <- (import$`2020`-import$`2019`)/import$`2019` - (import$`2019`-import$`2018`)/import$`2018`
+delta_export <- (export$`2020`-export$`2019`)/export$`2019` - (export$`2019`-export$`2018`)/export$`2018`
+delta_net_export <- ((export$`2020`-import$`2020`)-(export$`2019`-import$`2019`))/(export$`2019`-import$`2019`) - ((export$`2019`-import$`2019`)-(export$`2018`-import$`2018`))/(export$`2018`-import$`2018`)
+```
+
+As we can see from the chart below, the GDP growth rate of most provinces in China declined from 2019 to 2020, especially the central provinces. Hubei, the province where the epidemic first broke out, saw the biggest drop. The situation is similar in the neighboring provinces of Hubei.
+
+As can be seen from figures 2 and 3, western and central China suffered the greatest losses in terms of transportation and retail sales. Especially Hubei and Xinjiang. Xinjiang has a famous port called "Horgos", the largest railway port in Xinjiang Uygur Autonomous Region, which mainly supports the development of Xinjiang's textile and clothing industry, as well as foreign trade and service industry. Lockdown policies in western provinces tend to be stricter in the west, which will have a negative impact on traffic and retail revenue in western provinces.
+
+We analyze unemployment in the fourth chart. From 2019 to 2020, the rate of unemployment growth in most provinces was positive. We can only see declines in a few western and central provinces.
+
+In figures 5, 6 and 7, we focus on the transaction records of Chinese provinces. Provinces close to the border have seen a drop in imports and exports. Between 2019 and 2020, the growth rate of net exports in Tibet and Yunnan fell sharply. The impact on the eastern region is slighter than the Midwest. As noted above, the western provinces tended to have more restrictive lockdown policies, and their economies were more dependent on trade in resources and raw materials. We believe this is a contributing factor to the above results.
+
+```{r}
+# install.packages('hchinamap', build_vignettes = TRUE)
+library(dplyr)
+library(magrittr)
+library(hchinamap)
+dir <- tempdir()
+download.file('https://czxb.github.io/br/chinadf.rda', file.path(dir, 'chinadf.rda'))
+load(file.path(dir, 'chinadf.rda'), verbose = TRUE);
+china <- chinadf %>% dplyr::filter(region == "China")
+hchinamap(name = china$name[1:length(delta_gdp)], value = -delta_gdp,
+           width = "100%", height = "400px",
+           title = "Change of GDP Growth Rate - China", region = "China")
+hchinamap(name = china$name[1:length(delta_transport)], value = -delta_transport,
+           width = "100%", height = "400px",
+           title = "Change of Transport Growth Rate - China", region = "China")
+hchinamap(name = china$name[1:length(delta_retail)], value = -delta_retail,
+           width = "100%", height = "400px",
+           title = "Change of Retail Growth Rate - China", region = "China")
+hchinamap(name = china$name[1:length(delta_unemployment)], value = -delta_unemployment,
+           width = "100%", height = "400px",
+           title = "Change of Unemployment Growth Rate - China", region = "China")
+hchinamap(name = china$name[1:length(delta_import)], value = -delta_import,
+           width = "100%", height = "400px",
+           title = "Change of Import Growth Rate - China", region = "China")
+hchinamap(name = china$name[1:length(delta_export)], value = -delta_export,
+           width = "100%", height = "400px",
+           title = "Change of Export Growth Rate - China", region = "China")
+hchinamap(name = china$name[1:length(delta_net_export)], value = -delta_net_export,
+           width = "100%", height = "400px",
+           title = "Change of Net Export Growth Rate - China", region = "China")
+```
