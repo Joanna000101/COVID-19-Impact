@@ -57,7 +57,7 @@ var data4 = [
 
 
 // set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 70, left: 60},
+var margin = {top: 30, right: 10, bottom: 70, left: 60},
     width = 800 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
 
