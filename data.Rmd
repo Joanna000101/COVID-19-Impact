@@ -1,8 +1,10 @@
 # Data 
 
 ## Sources
+For the Covid-19 data, we download data from Harvard Dataverse (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN). For the provincial time-series economics data in China, we download data from China National Bureau of Statistics (https://data.stats.gov.cn/easyquery.htm?cn=G0104), which includes provincial GDP, Transportation Increment, Retailing Increment, Registered unemployment, Provincial Export, Provincial Import and etc. For stock price data and US index data, we downloaded from Investing.com. The data from Investing is consistent with data from Bloomberg, therefore its credibility is validated.
 
 ## Cleaning / transformation
+For the processing of China's economic data, we use differences in growth rates to better illustrate the impact of the pandemic, because most provinces' GDP still grew during the pandemic, but at a slower rate.
 
 ## Missing value analysis
 
