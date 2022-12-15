@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Data | finalproj.knit</title>
+  <title>Chapter 5 1 | finalproj.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Data | finalproj.knit" />
+  <meta property="og:title" content="Chapter 5 1 | finalproj.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Data | finalproj.knit" />
+  <meta name="twitter:title" content="Chapter 5 1 | finalproj.knit" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="proposal.html"/>
-<link rel="next" href="results.html"/>
+<link rel="prev" href="results.html"/>
+<link rel="next" href="section-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -143,32 +143,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Data<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="sources" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Sources<a href="data.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For the Covid-19 data, we download data from Harvard Dataverse (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN" class="uri">https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN</a>). For the provincial time-series economics data in China, we download data from China National Bureau of Statistics (<a href="https://data.stats.gov.cn/easyquery.htm?cn=G0104" class="uri">https://data.stats.gov.cn/easyquery.htm?cn=G0104</a>), which includes provincial GDP, Transportation Increment, Retailing Increment, Registered unemployment, Provincial Export, Provincial Import and etc. For stock price data and US index data, we downloaded from Investing.com. The data from Investing is consistent with data from Bloomberg, therefore its credibility is validated.</p>
-</div>
-<div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For the processing of China’s economic data, we use differences in growth rates to better illustrate the impact of the pandemic, because most provinces’ GDP still grew during the pandemic, but at a slower rate.</p>
-</div>
-<div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There is no missing value in china_economics.xlsx. We can verify this by drawing the below graph to show the location of missing value:
-<img src="finalproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>There is missing volume in US dollar historical index, but we only used close price of it.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-
-</div>
+<div id="section" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> 1<a href="section.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<pre><code>## # A tibble: 5 × 6
+##   Country        `Country Code` `2018` `2019` `2020` `2021`
+##   &lt;chr&gt;          &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 United States  USA             20.5   21.4   20.9   23.0 
+## 2 China          CHN             13.9   14.3   14.7   17.7 
+## 3 Japan          JPN              5.04   5.12   5.04   4.94
+## 4 Germany        DEU              3.98   3.89   3.85   4.22
+## 5 United Kingdom GBR              2.90   2.88   2.76   3.19</code></pre>
+<pre><code>## # A tibble: 5 × 5
+##   Country        `Country Code` `2019` `2020` `2021`
+##   &lt;chr&gt;          &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 United States  USA             4.12   -2.24  10.1 
+## 2 China          CHN             2.77    2.86  20.7 
+## 3 Japan          JPN             1.70   -1.62  -2.04
+## 4 Germany        DEU            -2.24   -1.08   9.79
+## 5 United Kingdom GBR            -0.762  -4.23  15.6</code></pre>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>The graph shows the GDP growth rates for the top five countries with the highest GDP. The GDP of these countries accounts for more than half of the world GDP. They well indicate the global economy. We can observe from the graph that most of the countries, expect China, experienced negative GDP growth in 2020. Most of the countries, expect China and Germany, experienced the lowest GDP growth in 2020. The global economy was not going well during the pandemic.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="proposal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +201,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/ycZhang2373/COVID-19-Impact/edit/main/data.Rmd",
+"link": "https://github.com/ycZhang2373/COVID-19-Impact/edit/main/results.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -207,7 +209,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ycZhang2373/COVID-19-Impact/blob/main/data.Rmd",
+"link": "https://github.com/ycZhang2373/COVID-19-Impact/blob/main/results.Rmd",
 "text": null
 },
 "download": null,
