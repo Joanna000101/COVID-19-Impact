@@ -6,3 +6,16 @@
 
 ## Missing value analysis
 
+There is no missing value in china_economics.xlsx. We can verify this by drawing the below graph to show the location of missing value:
+```{r}
+# install.packages("remotes")
+# remotes::install_github("jtr13/redav")
+library(redav)
+# Take gdp for example
+plot_missing(gdp, percent = FALSE)
+# plot_missing(transport, percent = FALSE)
+# plot_missing(retail, percent = FALSE)
+# plot_missing(unemployment, percent = FALSE)
+# plot_missing(import, percent = FALSE)
+# plot_missing(export, percent = FALSE)
+```
