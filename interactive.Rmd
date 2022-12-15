@@ -1,9 +1,5 @@
 # Interactive component
 
-<script src="https://d3js.org/d3.v7.js"></script>
-<script>
-# Interactive component
-
 <meta charset="utf-8">
 <title>NYUJobs></title>
 <style type="text/css">
@@ -12,52 +8,52 @@
 </style>
 <body>
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 <h1>Job salary/numbers according to category</h1>
  </h3>
 <!-- Add buttons -->
-<button onclick="update(data1)">Lowest Salary</button>
-<button onclick="update(data2)">Highest Salary</button>
-<button onclick="update(data3)">Number of positions</button>
+<button onclick="update(data1)">2018 GDP</button>
+<button onclick="update(data2)">2019 GDP</button>
+<button onclick="update(data3)">2020 GDP</button>
+<button onclick="update(data4)">2021 GDP</button>
 
 
 <!-- Create a div where the graph will take place -->
 <div id="d3try" ></div>
 <script>
 // create  data_set
-var data1 = [   {Category: "Technology&Data", value: 72121},
-   {Category: "Finance", value: 68928},
-   {Category: "Engineering", value: 68092},
-   {Category: "Communications", value: 66899},
-   {Category: "Legal", value: 65258},
-   {Category: "Policy", value: 63137},
-   {Category: "Social Services", value: 61706},
-   {Category: "Public Safety", value: 56089},
+var data1 = [ 
+   {Category: "USA", value: 20527156026000},
+   {Category: "CHN", value: 13894817549380.3},
+   {Category: "JPN", value: 5037835383110.97},
+   {Category: "DEU", value: 3977289455388.23},
+   {Category: "GBR", value: 2900791442554.06},
 ];
 
 var data2 = [
-   {Category: "Engineering", value: 105204.97},
-   {Category: "Technology&Data", value: 103689.77},
-   {Category: "Communications", value: 101403.88},
-   {Category: "Policy", value: 98124},
-   {Category: "Finance", value: 89347},
-   {Category: "Legal", value: 79498},
-   {Category: "Social Services", value: 79494},
-   {Category: "Human Resources", value: 74884},
-  
-
+   {Category: "USA", value: 21372572437000},
+   {Category: "CHN", value: 14279937500608},
+   {Category: "JPN", value: 5123318151510.62},
+   {Category: "DEU", value: 3888326788627.44},
+   {Category: "GBR", value: 2878673912414.44},
 ];
 
 var data3 = [
-   {Category: "Constituent Services", value: 122},
-   {Category: "Building Operation", value: 117},
-   {Category: "Legal", value: 66},
-   {Category: "Engineering", value: 47},
-   {Category: "Human Resources", value: 40},
-   {Category: "Communications", value: 39},
-    {Category: "Social Services", value: 34},
-   {Category: "Public Safety", value: 30},
+   {Category: "USA", value: 20893743833000},
+   {Category: "CHN", value: 14687673892882},
+   {Category: "JPN", value: 5040107754084.11},
+   {Category: "DEU", value: 3846413928653.71},
+   {Category: "GBR", value: 2756900214107.32},
    ];
+
+var data4 = [
+   {Category: "USA", value: 22996100000000},
+   {Category: "CHN", value: 17734062645371.4},
+   {Category: "JPN", value: 4937421880461.55},
+   {Category: "DEU", value: 4223116205968.92},
+   {Category: "GBR", value: 3186859739185.02},
+   ];
+
 
 
 // set the dimensions and margins of the graph
@@ -139,4 +135,3 @@ update(data1)
 
 </script>
 </body>
-  

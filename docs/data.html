@@ -149,18 +149,21 @@
 <h1><span class="header-section-number">Chapter 3</span> Data<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="sources" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Sources<a href="data.html#sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For the global GDP by country data, we download the data from the World Bank (<a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?most_recent_value_desc=true" class="uri">https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?most_recent_value_desc=true</a>). The World Bank is part of the United Nations system. The World Bank provides financial service for governments and most of the countries are its membership.So, the website of World Bank is a confidential information source. The website provides a link to download the GDP data as excel. The file contains GDP for over 200 countries and economies from 1980 to 2021. The GDP data is numeric. The country names and codes are characters. There are some missing values for GDP of some countries. But we are not going to use GDP for all countries. So, this problem causes no harm to our project.</p>
 <p>For the Covid-19 data, we download data from Harvard Dataverse (<a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN" class="uri">https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN</a>). For the provincial time-series economics data in China, we download data from China National Bureau of Statistics (<a href="https://data.stats.gov.cn/easyquery.htm?cn=G0104" class="uri">https://data.stats.gov.cn/easyquery.htm?cn=G0104</a>), which includes provincial GDP, Transportation Increment, Retailing Increment, Registered unemployment, Provincial Export, Provincial Import and etc. For stock price data and US index data, we downloaded from Investing.com. The data from Investing is consistent with data from Bloomberg, therefore its credibility is validated.</p>
+<p>Reference: <a href="https://en.wikipedia.org/wiki/World_Bank" class="uri">https://en.wikipedia.org/wiki/World_Bank</a></p>
 </div>
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For the processing of China’s economic data, we use differences in growth rates to better illustrate the impact of the pandemic, because most provinces’ GDP still grew during the pandemic, but at a slower rate.</p>
+<p>For the global GDP by country data, we pre-processed it in the excel file. We deleted other columns and only left columns: Country, 2018 GDP, 2019 GDP, 2020 GDP, and 2021 GDP. Then, we sorted based on 2021 GDP descendingly. The file included GDP for economies, such as European Union and IBRD. We manually filtered and left the top 5 countries with the largest GDP. We exported the processed excel file into rmd file.
+For the processing of China’s economic data, we use differences in growth rates to better illustrate the impact of the pandemic, because most provinces’ GDP still grew during the pandemic, but at a slower rate.</p>
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Missing value analysis<a href="data.html#missing-value-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is no missing value in china_economics.xlsx. We can verify this by drawing the below graph to show the location of missing value:
-<img src="finalproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>There is missing volume in US dollar historical index, but we only used close price of it.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<img src="C:/Users/Astron/Desktop/%E5%93%A5%E5%A4%A7DS/Data%20Visualization/COVID-19-Impact/finalproj_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>There is missing volume in US dollar historical index, but we only used column date and price.</p>
+<p><img src="C:/Users/Astron/Desktop/%E5%93%A5%E5%A4%A7DS/Data%20Visualization/COVID-19-Impact/finalproj_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 
 </div>
 </div>

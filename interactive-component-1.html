@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Interactive component | interactive.knit</title>
+  <title>Chapter 2 Interactive component | interactive.knit</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Interactive component | interactive.knit" />
+  <meta property="og:title" content="Chapter 2 Interactive component | interactive.knit" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Interactive component | interactive.knit" />
+  <meta name="twitter:title" content="Chapter 2 Interactive component | interactive.knit" />
   
   
   
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="interactive-component.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -70,7 +70,8 @@
 <li><a href="./">COVID19IMPACT</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path=""><a href="#interactive-component"><i class="fa fa-check"></i><b>1</b> Interactive component</a></li>
+<li class="chapter" data-level="1" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>1</b> Interactive component</a></li>
+<li class="chapter" data-level="2" data-path="interactive-component-1.html"><a href="interactive-component-1.html"><i class="fa fa-check"></i><b>2</b> Interactive component</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -90,36 +91,35 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<!--bookdown:title:end-->
-<!--bookdown:title:start-->
-<div id="interactive-component" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Interactive component<a href="#interactive-component" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<script src="https://d3js.org/d3.v7.js"></script>
-<script>
-# Interactive component
-
+<div id="interactive-component-1" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Interactive component<a href="interactive-component-1.html#interactive-component-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <meta charset="utf-8">
-<title>NYUJobs></title>
+<title>
+NYUJobs&gt;
+</title>
 <style type="text/css">
    h1 {color:black;}  /* CSS styling */
    p {color:blue;}
 </style>
 <body>
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 <h1>
 Job salary/numbers according to category
 </h1>
 </h3>
 <!-- Add buttons -->
 <button onclick="update(data1)">
-Lowest Salary
+2018 GDP
 </button>
 <button onclick="update(data2)">
-Highest Salary
+2019 GDP
 </button>
 <button onclick="update(data3)">
-Number of positions
+2020 GDP
+</button>
+<button onclick="update(data4)">
+2021 GDP
 </button>
 <!-- Create a div where the graph will take place -->
 <div id="d3try">
@@ -127,39 +127,38 @@ Number of positions
 </div>
 <script>
 // create  data_set
-var data1 = [   {Category: "Technology&Data", value: 72121},
-   {Category: "Finance", value: 68928},
-   {Category: "Engineering", value: 68092},
-   {Category: "Communications", value: 66899},
-   {Category: "Legal", value: 65258},
-   {Category: "Policy", value: 63137},
-   {Category: "Social Services", value: 61706},
-   {Category: "Public Safety", value: 56089},
+var data1 = [ 
+   {Category: "USA", value: 20527156026000},
+   {Category: "CHN", value: 13894817549380.3},
+   {Category: "JPN", value: 5037835383110.97},
+   {Category: "DEU", value: 3977289455388.23},
+   {Category: "GBR", value: 2900791442554.06},
 ];
 
 var data2 = [
-   {Category: "Engineering", value: 105204.97},
-   {Category: "Technology&Data", value: 103689.77},
-   {Category: "Communications", value: 101403.88},
-   {Category: "Policy", value: 98124},
-   {Category: "Finance", value: 89347},
-   {Category: "Legal", value: 79498},
-   {Category: "Social Services", value: 79494},
-   {Category: "Human Resources", value: 74884},
-  
-
+   {Category: "USA", value: 21372572437000},
+   {Category: "CHN", value: 14279937500608},
+   {Category: "JPN", value: 5123318151510.62},
+   {Category: "DEU", value: 3888326788627.44},
+   {Category: "GBR", value: 2878673912414.44},
 ];
 
 var data3 = [
-   {Category: "Constituent Services", value: 122},
-   {Category: "Building Operation", value: 117},
-   {Category: "Legal", value: 66},
-   {Category: "Engineering", value: 47},
-   {Category: "Human Resources", value: 40},
-   {Category: "Communications", value: 39},
-    {Category: "Social Services", value: 34},
-   {Category: "Public Safety", value: 30},
+   {Category: "USA", value: 20893743833000},
+   {Category: "CHN", value: 14687673892882},
+   {Category: "JPN", value: 5040107754084.11},
+   {Category: "DEU", value: 3846413928653.71},
+   {Category: "GBR", value: 2756900214107.32},
    ];
+
+var data4 = [
+   {Category: "USA", value: 22996100000000},
+   {Category: "CHN", value: 17734062645371.4},
+   {Category: "JPN", value: 4937421880461.55},
+   {Category: "DEU", value: 4223116205968.92},
+   {Category: "GBR", value: 3186859739185.02},
+   ];
+
 
 
 // set the dimensions and margins of the graph
@@ -247,7 +246,7 @@ update(data1)
           </div>
         </div>
       </div>
-
+<a href="interactive-component.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
