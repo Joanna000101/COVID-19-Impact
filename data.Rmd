@@ -1,9 +1,14 @@
 # Data 
 
 ## Sources
+For the global GDP by country data, we download the data from the World Bank (https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?most_recent_value_desc=true). The World Bank is part of the United Nations system. The World Bank provides financial service for governments and most of the countries are its membership.So, the website of World Bank is a confidential information source. The website provides a link to download the GDP data as excel. The file contains GDP for over 200 countries and economies from 1980 to 2021. The GDP data is numeric. The country names and codes are characters. There are some missing values for GDP of some countries. But we are not going to use GDP for all countries. So, this problem causes no harm to our project. 
+
 For the Covid-19 data, we download data from Harvard Dataverse (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/MR5IJN). For the provincial time-series economics data in China, we download data from China National Bureau of Statistics (https://data.stats.gov.cn/easyquery.htm?cn=G0104), which includes provincial GDP, Transportation Increment, Retailing Increment, Registered unemployment, Provincial Export, Provincial Import and etc. For stock price data and US index data, we downloaded from Investing.com. The data from Investing is consistent with data from Bloomberg, therefore its credibility is validated.
 
+Reference: https://en.wikipedia.org/wiki/World_Bank
+
 ## Cleaning / transformation
+For the global GDP by country data, we pre-processed it in the excel file. We deleted other columns and only left columns: Country, 2018 GDP, 2019 GDP, 2020 GDP, and 2021 GDP. Then, we sorted based on 2021 GDP descendingly. The file included GDP for economies, such as European Union and IBRD. We manually filtered and left the top 5 countries with the largest GDP. We exported the processed excel file into rmd file. 
 For the processing of China's economic data, we use differences in growth rates to better illustrate the impact of the pandemic, because most provinces' GDP still grew during the pandemic, but at a slower rate.
 
 ## Missing value analysis
@@ -22,7 +27,7 @@ plot_missing(gdp, percent = FALSE)
 # plot_missing(export, percent = FALSE)
 ```
 
-There is missing volume in US dollar historical index, but we only used close price of it.
+There is missing volume in US dollar historical index, but we only used column date and price.
 
 ```{r}
 df2 <- read.csv(file="US Dollar Index Historical Data.csv")
