@@ -1,0 +1,16 @@
+introduction
+proposal
+research-topic
+data-availability
+data
+sources
+cleaning-transformation
+missing-value-analysis
+results
+global-economy-impact
+chinese-economy-impact
+interactive-component
+conclusion
+main-takeaways
+limitation-and-future-directions
+lessons-learned
