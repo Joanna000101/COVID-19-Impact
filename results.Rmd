@@ -13,12 +13,12 @@ library("readxl")
 ```
 
 ## Global Economy Impact
-```{r}
+```{r, results='hide'}
 df1 <- read_excel("GDP_Global.xlsx")
 df1 
 ```
 
-```{r}
+```{r, results='hide'}
 df1_1 <- df1[-c(3)]
 df1_1$'2019' <- 100* (df1$'2019'-df1$'2018')/df1$'2018'
 df1_1$'2020' <- 100* (df1$'2020'-df1$'2019')/df1$'2019'
@@ -39,13 +39,13 @@ ggparcoord(df1_1, columns=3:5, groupColumn=1, scale="globalminmax", title="GDP G
 The graph shows the GDP growth rates for the top five countries with the highest GDP. The GDP of these countries accounts for more than half of the world GDP. They well indicate the global economy. We can observe from the graph that most of the countries, expect China, experienced negative GDP growth in 2020. Most of the countries, expect China and Germany, experienced the lowest GDP growth in 2020. The global economy was not going well during the pandemic. 
 
 
-```{r}
+```{r, results='hide'}
 df2 <- read.csv(file="US Dollar Index Historical Data.csv")
 head(df2)
 ```
 There is no missing value for columns used in this project: Date and Price.
 
-```{r}
+```{r, results='hide'}
 df2$Date <- as.Date(df2$Date, format = "%m/%d/%Y")
 head(df2)
 ```
