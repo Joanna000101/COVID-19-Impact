@@ -9,6 +9,8 @@ missing-value-analysis
 results
 global-economy-impact
 chinese-economy-impact
+covid-19-confirmed-cases-distribution
+economy-impact-analysis
 interactive-component
 conclusion
 main-takeaways

@@ -8,7 +8,6 @@ library(ggplot2)
 library(GGally)
 library(redav)
 library(tidyr)
-library(geofacet)
 library(tidyverse)
 library("readxl")
 #install.packages("remotes")
@@ -72,7 +71,7 @@ Reference: https://www.investopedia.com/terms/u/usdx.asp
 
 ### Covid-19 Confirmed Cases Distribution
 
-```{r,fig.height=5, results='hide'}
+```{r,fig.height=5, results='hide', eval=FALSE}
 provinceConfirmed <- read.table('provinceConfirmed.tab',sep='\t',header=TRUE)
 
 T_C = provinceConfirmed[3:1017]
@@ -83,7 +82,8 @@ T_C = T_C %>% pivot_longer(-ProvEN,names_to = "Date",values_to = "Confirmed")
 T_C$'Date' <- ymd(gsub('T_C_','',T_C$'Date'))
 ```
 
-```{r,fig.height=5,dpi=400, results='hide'}
+```{r,fig.height=5,dpi=400, results='hide', eval=FALSE}
+library(geofacet)
 T_C_Thousand <- T_C
 T_C_Thousand$Confirmed <- T_C$Confirmed/1000
 
@@ -93,9 +93,10 @@ ggplot(T_C_Thousand, aes(Date, Confirmed)) +
   ylab("2020-2022 Covid-19 Confirmed per Province (Thousand)") +
   theme_bw()
 ```
+
 ![ConfirmedPerProvince](ConfirmedPerProvince.png)
 
-```{r,fig.height=5, results='hide'}
+```{r,fig.height=5, results='hide', eval=FALSE}
 ggplot(T_C %>% filter(Date < as.Date("2020-03-01")),
           aes(color = ProvEN, Date, `Confirmed`)) + 
           geom_line() + 
@@ -111,6 +112,8 @@ ggplot(temp,
 ```
 
 In this plot, we are visualizing the number of confirmed cases of Covid-19 in various provinces in China from 2020 to 2022. A line plot is used to show the trend of daily confirmed cases over time in each province. The number of confirmed cases (in thousand) is on the y-axis, with the date on the x-axis. The plot is faceted by province, with each province shown in a separate panel using the `facet_geo` function. We can see COVID-19 first outbreak in Hubei province in January 2020, and its surrounding provinces had an increase in the number of confirmed cases in the early stage of the epidemic. However, the increase in the number of confirmed cases in the distant coastal provinces is relatively late. This plot allows us to see the trend of confirmed cases over time in each province and compare the severity of the Covid-19 outbreak across provinces. 
+
+note: we do not have data for provinces: Macau, Hong Kong, and Taiwan.
 
 ### Economy Impact Analysis
 
