@@ -8,6 +8,8 @@ library(ggplot2)
 library(GGally)
 library(redav)
 library(tidyr)
+library(geofacet)
+library(tidyverse)
 library("readxl")
 #install.packages("remotes")
 #remotes::install_github("jtr13/redav")
@@ -67,6 +69,50 @@ Reference: https://www.investopedia.com/terms/u/usdx.asp
 
 
 ## Chinese Economy Impact
+
+### Covid-19 Confirmed Cases Distribution
+
+```{r,fig.height=5, results='hide'}
+provinceConfirmed <- read.table('provinceConfirmed.tab',sep='\t',header=TRUE)
+
+T_C = provinceConfirmed[3:1017]
+T_C[5,1]= 'Inner Mongolia'
+T_C[26,1] = 'Tibet'
+
+T_C = T_C %>% pivot_longer(-ProvEN,names_to = "Date",values_to = "Confirmed")
+T_C$'Date' <- ymd(gsub('T_C_','',T_C$'Date'))
+```
+
+```{r,fig.height=5,dpi=400, results='hide'}
+T_C_Thousand <- T_C
+T_C_Thousand$Confirmed <- T_C$Confirmed/1000
+
+ggplot(T_C_Thousand, aes(Date, Confirmed)) +
+  geom_line(color = "steelblue") +
+  facet_geo(~ ProvEN, grid = "china_prov_grid2",scales = "free") +
+  ylab("2020-2022 Covid-19 Confirmed per Province (Thousand)") +
+  theme_bw()
+```
+![ConfirmedPerProvince](E:/columbia/edav/FinalProject/ConfirmedPerProvince.png)
+
+```{r,fig.height=5, results='hide'}
+ggplot(T_C %>% filter(Date < as.Date("2020-03-01")),
+          aes(color = ProvEN, Date, `Confirmed`)) + 
+          geom_line() + 
+          theme_grey(14)
+temp = provinceConfirmed[c(1:6,8,10:16,18:31),3:1017]
+temp = temp %>% pivot_longer(-ProvEN,names_to = "Date",values_to = "Confirmed")
+
+ggplot(temp,
+          aes(Date, `Confirmed`,color = ProvEN)) + 
+          geom_line() + 
+          theme_grey(14)
+
+```
+
+In this plot, we are visualizing the number of confirmed cases of Covid-19 in various provinces in China from 2020 to 2022. A line plot is used to show the trend of daily confirmed cases over time in each province. The number of confirmed cases (in thousand) is on the y-axis, with the date on the x-axis. The plot is faceted by province, with each province shown in a separate panel using the `facet_geo` function. We can see COVID-19 first outbreak in Hubei province in January 2020, and its surrounding provinces had an increase in the number of confirmed cases in the early stage of the epidemic. However, the increase in the number of confirmed cases in the distant coastal provinces is relatively late. This plot allows us to see the trend of confirmed cases over time in each province and compare the severity of the Covid-19 outbreak across provinces. 
+
+### Economy Impact Analysis
 
 The COVID-19 pandemic will have an impact on different provinces and industries in China. During the outbreak in 2020, transportation, retail, urban registered unemployment rate, total import, total export, net export and other industries all showed a slow growth trend. This pattern of decline is concentrated in the Midwest. As we know, the development of eastern China mainly depends on its technology and services, while the development of central and western China, such as Shanxi, Xinjiang and Inner Mongolia, takes advantage of its abundant resources (coal, metals, cotton). Companies in these areas produce primary products and transfer them to eastern China or abroad for further processing.
 
