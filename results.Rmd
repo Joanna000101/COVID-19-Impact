@@ -93,7 +93,7 @@ ggplot(T_C_Thousand, aes(Date, Confirmed)) +
   ylab("2020-2022 Covid-19 Confirmed per Province (Thousand)") +
   theme_bw()
 ```
-![ConfirmedPerProvince](E:/columbia/edav/FinalProject/ConfirmedPerProvince.png)
+![ConfirmedPerProvince](ConfirmedPerProvince.png)
 
 ```{r,fig.height=5, results='hide'}
 ggplot(T_C %>% filter(Date < as.Date("2020-03-01")),
