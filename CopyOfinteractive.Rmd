@@ -9,13 +9,13 @@
 <body>
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v7.js"></script>
-<h1>GDP (trillion dollar) by Country </h1>
+<h1>Job salary/numbers according to category</h1>
  </h3>
 <!-- Add buttons -->
-<button onclick="update(data1)">2018 </button>
-<button onclick="update(data2)">2019 </button>
-<button onclick="update(data3)">2020 </button>
-<button onclick="update(data4)">2021 </button>
+<button onclick="update(data1)">2018 GDP (*1000000)</button>
+<button onclick="update(data2)">2019 GDP (*1000000)</button>
+<button onclick="update(data3)">2020 GDP (*1000000)</button>
+<button onclick="update(data4)">2021 GDP (*1000000)</button>
 
 
 <!-- Create a div where the graph will take place -->
@@ -23,35 +23,35 @@
 <script>
 // create  data_set
 var data1 = [ 
-   {Category: "USA", value: 20.52},
-   {Category: "CHN", value: 13.89},
-   {Category: "JPN", value: 5.04},
-   {Category: "DEU", value: 3.98},
-   {Category: "GBR", value: 2.90},
+   {Category: "USA", value: 20527156.0},
+   {Category: "CHN", value: 13894817.5},
+   {Category: "JPN", value: 5037835.4},
+   {Category: "DEU", value: 3977289.5},
+   {Category: "GBR", value: 2900791.4},
 ];
 
 var data2 = [
-   {Category: "USA", value: 21.37},
-   {Category: "CHN", value: 14.28},
-   {Category: "JPN", value: 5.12},
-   {Category: "DEU", value: 3.89},
-   {Category: "GBR", value: 2.88},
+   {Category: "USA", value: 21372572.4},
+   {Category: "CHN", value: 14279937.5},
+   {Category: "JPN", value: 5123318.2},
+   {Category: "DEU", value: 3888326.8},
+   {Category: "GBR", value: 2878673.9},
 ];
 
 var data3 = [
-   {Category: "USA", value: 20.89},
-   {Category: "CHN", value: 14.69},
-   {Category: "JPN", value: 5.04},
-   {Category: "DEU", value: 3.85},
-   {Category: "GBR", value: 2.76},
+   {Category: "USA", value: 20893743.8},
+   {Category: "CHN", value: 14687673.9},
+   {Category: "JPN", value: 5040107.8},
+   {Category: "DEU", value: 3846413.9},
+   {Category: "GBR", value: 2756900.2},
    ];
 
 var data4 = [
-   {Category: "USA", value: 23.00},
-   {Category: "CHN", value: 17.74},
-   {Category: "JPN", value: 4.94},
-   {Category: "DEU", value: 4.22},
-   {Category: "GBR", value: 3.19},
+   {Category: "USA", value: 22996100},
+   {Category: "CHN", value: 17734062.6},
+   {Category: "JPN", value: 4937421.8},
+   {Category: "DEU", value: 4223116.2},
+   {Category: "GBR", value: 3186859.7},
    ];
 
 
@@ -92,7 +92,7 @@ function update(data) {
   xAxis.call(d3.axisBottom(x))
 
   // Update the Y axis
-  y.domain([0, 25]);
+  y.domain([0, d3.max(data, function(d) { return d.value }) ]);
   yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
   // Create the u variable
@@ -113,7 +113,7 @@ function update(data) {
 
 var rect=svg.selectAll("rect").on("mouseover", function() {
                //highlight
-                 d3.select(this).style("fill","#2531ba");
+                 d3.select(this).style("fill","#BA5C25");
                 })
             .on("mouseout", function(d) {
                  d3.select(this).style("fill","#7b6888");
