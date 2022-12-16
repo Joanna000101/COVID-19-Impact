@@ -1,7 +1,7 @@
 # Interactive component
 
 <meta charset="utf-8">
-<title>NYUJobs></title>
+<title>GroupFinalWork></title>
 <style type="text/css">
    h1 {color:black;}  /* CSS styling */
    p {color:blue;}
